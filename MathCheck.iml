@@ -24,5 +24,14 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="miglayout-4.0-swing" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gwt-benchmark-viewer-1.5.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

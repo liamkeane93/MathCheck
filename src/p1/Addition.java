@@ -17,9 +17,11 @@ public class Addition extends JPanel {
     }
 
     private JPanel createAdditionPanel() {
-        JPanel p = new JPanel(new MigLayout());
+        JPanel p = new JPanel(new MigLayout(""));
         JLabel lbl1 = new JLabel("How many values do you want to add ?");
-        p.add(lbl1, "align Left");
+        JTextField txtFieldNum = new JTextField();
+        p.add(lbl1, "align left");
+        p.add(txtFieldNum, "wrap ,span");
 
         return p;
     }
