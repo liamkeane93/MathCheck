@@ -1,30 +1,35 @@
 package p1;
 
-import javax.swing.JTextField;
+import javax.swing.*;
 
-import java.awt.EventQueue;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import net.miginfocom.swing.MigLayout;
 
 public class Addition extends JPanel {
-	
-    public Addition() {
-   
-    	
-      }
 
+    public Addition() {
+        JPanel addPanel = createAdditionPanel();
+        add(addPanel, BorderLayout.CENTER);
+        setSize(640, 480);
+    }
+
+    private JPanel createAdditionPanel() {
+        JPanel p = new JPanel(new MigLayout());
+        JLabel lbl1 = new JLabel("How many values do you want to add ?");
+        p.add(lbl1, "align Left");
+
+        return p;
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Addition().setVisible(true);
+            }
+        });
+    }
 }
