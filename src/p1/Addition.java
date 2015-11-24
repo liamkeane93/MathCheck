@@ -16,7 +16,8 @@ import net.miginfocom.swing.MigLayout;
 
 public class Addition extends JPanel {
 
-    public Addition() {
+    public Addition(Panel p, Main main) {
+        super(p, main);
         JPanel Panel = new JPanel(new MigLayout());
         JLabel lbl1 = new JLabel("How many values do you want to add ?");
         Panel.add(lbl1);
