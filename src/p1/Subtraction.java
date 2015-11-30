@@ -4,8 +4,14 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class Subtraction extends JPanel {
+
+    private int valueEntered1;
+    private int valueEntered2,ans;
 
     public Subtraction(){
         MigLayout mg = new MigLayout("");
@@ -23,39 +29,54 @@ public class Subtraction extends JPanel {
         JLabel var2Label = new JLabel("Enter Value2");
         JTextField value2 = new JTextField(8);
 
-        JTextArea value11 = new JTextArea(2,3);
+        JButton calculate = new JButton("Calculate");
+
+        JTextArea firstEntered = new JTextArea(2,3);
 
         JLabel minus = new JLabel("Minus");
 
-        JLabel equals = new JLabel("Minus");
+        JTextArea secondEntered = new JTextArea(2,3);
 
+        JLabel equals = new JLabel("Equals");
 
+        JTextArea answer = new JTextArea(2,3);
 
         add(title, "split3,center, wrap");
 
         add(var1Label,"split 2, sg a");
         add(value1,"wrap");
 
-        add(var2Label,"split 4, sg a");
-        add(value2,"");
+        add(var2Label, "split 7, sg a");
+        add(value2,"wrap");
 
-        add(value11,"");
-        value11.setBorder(BorderFactory.createEtchedBorder());
-        add(minus);
+        add(calculate,"");
+        calculate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                valueEntered1 = Integer.parseInt(value1.getText());
+                valueEntered2 = Integer.parseInt(value2.getText());
+                ans = valueEntered1 - valueEntered2;
 
-        //add(getImageButton("minus.png",""));
+                add(firstEntered, "");
+                firstEntered.setBorder(BorderFactory.createEtchedBorder());
+                firstEntered.setText("" + valueEntered1);
+                firstEntered.setEditable(false);
+                add(minus);
 
+                add(secondEntered, "");
+                secondEntered.setBorder(BorderFactory.createEtchedBorder());
+                secondEntered.setText("" + valueEntered2);
+                secondEntered.setEditable(false);
+                add(equals);
 
+                add(answer, "");
+                answer.setBorder(BorderFactory.createEtchedBorder());
+                answer.setText(""+ans);
+                answer.setEditable(false);
+                add(answer, "wrap");
+            }
+        });
 
-
-
-
-
-    }
-    private JButton getImageButton(String imagePath, String text) {
-        java.net.URL imgURL = getClass().getResource(imagePath);
-        JButton button = new JButton(text,new ImageIcon(imgURL));
-        return button;
     }
 
 }
