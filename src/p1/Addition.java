@@ -194,6 +194,12 @@ public class Addition extends JPanel {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
+                try{
+                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+                }
+                catch (Exception e){
+
+                }
                 new Addition().setVisible(true);
             }
         });

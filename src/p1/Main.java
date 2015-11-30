@@ -1,12 +1,18 @@
 package p1;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
+import javax.swing.*;
+import javax.swing.text.EditorKit;
+
 import net.miginfocom.swing.MigLayout;
 
 public class Main extends JFrame{
 	public static void main(String[] args) {
+		try{
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		}
+		catch(Exception e) {
+
+		}
 		new Main();
 		}
 	
