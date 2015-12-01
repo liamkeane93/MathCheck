@@ -21,7 +21,7 @@ public class LinearGraph extends JPanel{
 
 
         JPanel chartPanel = createChartPanel();
-        add(chartPanel, BorderLayout.CENTER);
+        //add(chartPanel, BorderLayout.CENTER);
 
         setSize(640, 480);
 
