@@ -23,7 +23,7 @@ public class Main extends JFrame{
 		frame.add(tab);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
-		setSize(640, 480);
+		frame.setSize(640, 480);
 		frame.setVisible(true);
 		}
 }
