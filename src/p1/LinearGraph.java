@@ -1,4 +1,5 @@
 package p1;
+import net.miginfocom.swing.MigLayout;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtilities;
@@ -12,20 +13,34 @@ import org.jfree.chart.plot.PlotOrientation;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
 public class LinearGraph extends JPanel{
-
+    JTextField txt1 = new JTextField();
     public LinearGraph() {
 
+        JButton update = new JButton("Update");
 
-        JPanel chartPanel = createChartPanel();
-        //add(chartPanel, BorderLayout.CENTER);
+        MigLayout mg = new MigLayout("debug,wrap","[][]","[][]");
+        setLayout(mg);
 
-        setSize(640, 480);
+        add(txt1,"growx,pushx");
+        add(update,"left,wrap");
+        update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                repaint();
+                add(createChartPanel(), "grow,push, span 2");
+
+            }
+        });
+
 
     }
+
 
     private JPanel createChartPanel() {
         String chartTitle = "Objects Movement Chart";
@@ -37,13 +52,6 @@ public class LinearGraph extends JPanel{
         JFreeChart chart = ChartFactory.createXYLineChart(chartTitle,
                 xAxisLabel, yAxisLabel, dataset,PlotOrientation.VERTICAL,false,false,false);
 
-//		boolean showLegend = false;
-//		boolean createURL = false;
-//		boolean createTooltip = false;
-//
-//		JFreeChart chart = ChartFactory.createXYLineChart(chartTitle,
-//				xAxisLabel, yAxisLabel, dataset,
-//				PlotOrientation.HORIZONTAL, showLegend, createTooltip, createURL);
 
         customizeChart(chart);
 
@@ -64,19 +72,27 @@ public class LinearGraph extends JPanel{
     private XYDataset createDataset() {
         XYSeriesCollection dataset = new XYSeriesCollection();
         XYSeries series1 = new XYSeries("Object 1");
-        XYSeries series2 = new XYSeries("Object 2");
-        XYSeries series3 = new XYSeries("Object 3");
+        String input= txt1.getText();
 
-        series1.add(1.0, 2.0);
-        series1.add(2.0, 3.0);
-        series1.add(3.0, 2.5);
-        series1.add(3.5, 2.8);
-        series1.add(4.2, 6.0);
+        String words[] = input.split("x|X|Y|y|=|\\+");
+        for (int i = 0; i < words.length; i++) {
+            System.out.println(words[i]);
+        }
+        float X =Integer.parseInt(words[0]);
+        float Y = Integer.parseInt(words[2]);
+        float ans = Integer.parseInt(words[4]);
+
+        float xat0 = ans/Y;
+        float yat0 = ans/X;
+        float xat20 = ans/Y*20;
+        float yat20 = ans/X*20;
+        series1.add(xat0, yat0);
+        series1.add(xat20, yat20);
+
 
 
         dataset.addSeries(series1);
-        dataset.addSeries(series2);
-        dataset.addSeries(series3);
+
 
         return dataset;
     }
@@ -92,8 +108,7 @@ public class LinearGraph extends JPanel{
 
         // sets thickness for series (using strokes)
         renderer.setSeriesStroke(0, new BasicStroke(4.0f));
-        renderer.setSeriesStroke(1, new BasicStroke(3.0f));
-        renderer.setSeriesStroke(2, new BasicStroke(2.0f));
+
 
         // sets paint color for plot outlines
         plot.setOutlinePaint(Color.BLUE);
