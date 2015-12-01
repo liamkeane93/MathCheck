@@ -86,7 +86,8 @@ public class Subtraction extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 add(weHad,"");
-               
+
+                
 
             }
 
