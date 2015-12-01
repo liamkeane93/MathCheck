@@ -41,6 +41,9 @@ public class Subtraction extends JPanel {
 
         JTextArea answer = new JTextArea(2,3);
 
+        JButton howToDo = new JButton("Show me how its done:");
+        JLabel weHad = new JLabel("We Had: ");
+
         add(title, "split3,center, wrap");
 
         add(var1Label,"split 2, sg a");
@@ -71,10 +74,22 @@ public class Subtraction extends JPanel {
 
                 add(answer, "");
                 answer.setBorder(BorderFactory.createEtchedBorder());
-                answer.setText(""+ans);
+                answer.setText("" + ans);
                 answer.setEditable(false);
                 add(answer, "wrap");
+
+                add(howToDo, "wrap");
+
             }
+        });
+        howToDo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                add(weHad,"");
+               
+
+            }
+
         });
 
     }
