@@ -46,6 +46,9 @@ public class Subtraction extends JPanel {
 
         JButton howToDo = new JButton("Show me how its done:");
         JLabel weHad = new JLabel("We Had: ");
+        JLabel weTook = new JLabel("We took");
+        JLabel blank = new JLabel("");
+        JLabel weHave= new JLabel("We Have:");
 
         add(title, "split3,center, wrap");
 
@@ -99,11 +102,9 @@ public class Subtraction extends JPanel {
                     square2.setBackground(Color.blue);
                     square2.setOpaque(true);
                     square2.setEditable(false);
-
-                    
-
                 }
-
+                add(blank,"wrap");
+                add(weTook,"wrap");
                 number = Integer.parseInt(value2.getText());
                 for (int i=0; i<number;i++){
                     JTextArea square3 = new JTextArea(2,3);
@@ -111,9 +112,8 @@ public class Subtraction extends JPanel {
                     square3.setBackground(Color.blue);
                     square3.setOpaque(true);
                     square3.setEditable(false);
-
-
                 }
+
 
             }
         });
