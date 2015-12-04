@@ -49,6 +49,7 @@ public class Subtraction extends JPanel {
         JLabel weTook = new JLabel("We took");
         JLabel blank = new JLabel("");
         JLabel weHave= new JLabel("We Have:");
+        JLabel blank1 = new JLabel("");
 
         add(title, "split3,center, wrap");
 
@@ -113,8 +114,16 @@ public class Subtraction extends JPanel {
                     square3.setOpaque(true);
                     square3.setEditable(false);
                 }
-
-
+                add(blank1,"wrap");
+                add(weHave,"wrap");
+                number = Integer.parseInt(answer.getText());
+                for (int i=0; i<number;i++){
+                    JTextArea square4 = new JTextArea(2,3);
+                    add(square4,"split 10");
+                    square4.setBackground(Color.blue);
+                    square4.setOpaque(true);
+                    square4.setEditable(false);
+                }
             }
         });
     }
