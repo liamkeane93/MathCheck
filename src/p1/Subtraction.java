@@ -12,8 +12,9 @@ public class Subtraction extends JPanel {
 
     private int valueEntered1;
     private int valueEntered2,ans;
+    private int number;
 
-    public Subtraction(){
+    public Subtraction() {
         MigLayout mg = new MigLayout("");
         setLayout(mg);
         setSize(400, 400);
@@ -31,28 +32,30 @@ public class Subtraction extends JPanel {
 
         JButton calculate = new JButton("Calculate");
 
-        JTextArea firstEntered = new JTextArea(2,3);
+        JTextArea firstEntered = new JTextArea(2, 3);
 
         JLabel minus = new JLabel("Minus");
 
-        JTextArea secondEntered = new JTextArea(2,3);
+        JTextArea secondEntered = new JTextArea(2, 3);
 
         JLabel equals = new JLabel("Equals");
 
-        JTextArea answer = new JTextArea(2,3);
+        JTextArea answer = new JTextArea(2, 3);
+
+        JTextArea square1= new JTextArea(2,3);
 
         JButton howToDo = new JButton("Show me how its done:");
         JLabel weHad = new JLabel("We Had: ");
 
         add(title, "split3,center, wrap");
 
-        add(var1Label,"split 2, sg a");
-        add(value1,"wrap");
+        add(var1Label, "split 2, sg a");
+        add(value1, "wrap");
 
         add(var2Label, "split 7, sg a");
-        add(value2,"wrap");
+        add(value2, "wrap");
 
-        add(calculate,"");
+        add(calculate, "");
         calculate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -79,20 +82,38 @@ public class Subtraction extends JPanel {
                 add(answer, "wrap");
 
                 add(howToDo, "wrap");
-
             }
         });
+
         howToDo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                add(weHad,"");
 
+                add(weHad, "wrap");
+                number = Integer.parseInt(value1.getText());
+
+                for(int i=0; i<number; i++)
+                {
+                    JTextArea square2 = new JTextArea(2,3);
+                    add(square2,"split 10");
+                    square2.setBackground(Color.blue);
+                    square2.setOpaque(true);
+                    square2.setEditable(false);
+
+                }
                 
+                number = Integer.parseInt(value2.getText());
+                for (int i=0; i<number;i++){
+                    JTextArea square3 = new JTextArea(2,3);
+                    add(square3,"split 10");
+                    square3.setBackground(Color.blue);
+                    square3.setOpaque(true);
+                    square3.setEditable(false);
+
+
+                }
 
             }
-
         });
-
     }
-
 }
