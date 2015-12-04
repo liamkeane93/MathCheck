@@ -99,6 +99,7 @@ public class Subtraction extends JPanel {
                     square2.setBackground(Color.blue);
                     square2.setOpaque(true);
                     square2.setEditable(false);
+
                     
 
                 }
