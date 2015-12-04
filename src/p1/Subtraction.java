@@ -101,7 +101,7 @@ public class Subtraction extends JPanel {
                     square2.setEditable(false);
 
                 }
-                
+
                 number = Integer.parseInt(value2.getText());
                 for (int i=0; i<number;i++){
                     JTextArea square3 = new JTextArea(2,3);
