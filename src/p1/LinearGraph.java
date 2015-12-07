@@ -23,7 +23,7 @@ public class LinearGraph extends JPanel{
     public LinearGraph() {
 
         JButton update = new JButton("Update");
-
+        JButton reset = new JButton("Reset");
         MigLayout mg = new MigLayout("debug,wrap","[][]","[][]");
         setLayout(mg);
 
@@ -33,8 +33,12 @@ public class LinearGraph extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 repaint();
-                add(createChartPanel(), "grow,push, span 2");
-
+                //createChartPanel().setVisible(false);
+                add(createChartPanel(), "span 2");
+                createChartPanel().setSize(150,150);
+                repaint();
+                JLabel tag = new JLabel(txt1.getText());
+                add(tag,"growx,pushx, span 2,center,wrap");
             }
         });
 
@@ -138,4 +142,3 @@ public class LinearGraph extends JPanel{
         });
     }
 }
-
