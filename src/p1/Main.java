@@ -1,8 +1,7 @@
 package p1;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
+import javax.swing.*;
+
 import net.miginfocom.swing.MigLayout;
 
 public class Main extends JFrame{
@@ -21,6 +20,13 @@ public class Main extends JFrame{
 		tab.add("Multiplication", new Multiplication());
 		tab.add("LinearGraphs", new LinearGraph());
 		frame.add(tab);
+		try {
+			// Set System L&F
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		}
+		catch (Exception e) {
+			// handle exception
+		}
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setSize(640, 480);
