@@ -23,6 +23,10 @@ public class Addition extends JPanel {
         setLayout(mg);
         setSize(400, 400);
         ///////////////////////////////Labels//////////////////////
+        JLabel title = new JLabel("Math check Addition lets you visualize how addition is done!");
+        title.setBackground(Color.yellow);
+        title.setOpaque(true);
+        title.setBorder(BorderFactory.createEtchedBorder());
         JLabel numLabel = new JLabel("How many values do you want to add ?");
         JLabel val1Lbl = new JLabel("Enter Value 1");
         JLabel val2Lbl = new JLabel("Enter Value 2");
@@ -49,6 +53,7 @@ public class Addition extends JPanel {
         JButton showBtn = new JButton("Show me hows its done!");
         JButton calcBtn = new JButton("Calculate");
         ///////////////////////Add components///////////////////////
+        add(title,"left, wrap");
         add(numLabel, "split 3,left");
         add(txtFieldNum, "left,grow");
         add(addBtn, "left,wrap");
